@@ -14,6 +14,43 @@ BOT_NAME = 'pep_scraper'
 SPIDER_MODULES = ['pep_scraper.spiders']
 NEWSPIDER_MODULE = 'pep_scraper.spiders'
 
+DATABASE = {
+    'drivername':'postgres',
+    'host':'localhost',
+    'port':'5432',
+    'username':'postgres',
+    'password':'postgres',
+    'database':'pepscrape'
+}
+
+ITEM_PIPELINES = ['pep_scraper.pipeliens.PepScraperPipeline']
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'pep_scraper (+http://www.yourdomain.com)'
