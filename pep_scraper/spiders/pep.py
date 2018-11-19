@@ -42,17 +42,9 @@ class PepSpider(scrapy.Spider):
                 item[key] =  row.find('td').text
             except KeyError as e:
                 print(f"Unexpected key: {key}")
-        
-        # item['short_typ'] = response.meta['type']
-        # item['short_num'] = response.meta['num']
-        # item['short_tit'] = response.meta['title']
-        # item['short_aut'] = response.meta['auth']
-        # item['url'] = response.meta['url']
 
-        print('-----')
-        from time import sleep
-        sleep(1)
-        print(item)
-        print('-----')
+        # print('-----')
+        # print(item)
+        # print('-----')
 
         yield item
