@@ -1,4 +1,4 @@
-import settings
+import pep_scraper.settings as settings
 
 from sqlalchemy import create_engine, Column, Integer, String, DateTime
 from sqlalchemy.engine.url import URL
@@ -25,11 +25,11 @@ class Pepscrape(DeclarativeBase):
 
     ID = Column(Integer, primary_key=True)
     short_typ = Column('short_type', String)
-    short_num = Column('short_num')
+    short_num = Column('short_num', Integer)
     short_tit = Column('short_tit', String)
     short_aut = Column('short_aut', String)
     url = Column('url', String)
-    PEP = Column('PEP', nullable=True)
+    PEP = Column('PEP', Integer, nullable=True)
     Title = Column('Title', String, nullable=True)
     Author = Column('Author', String, nullable=True)
     Status = Column('Status', String, nullable=True)

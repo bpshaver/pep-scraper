@@ -6,7 +6,7 @@
 # See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 
 from sqlalchemy.orm import sessionmaker
-from models import Pepscrape, db_connect, create_table
+from pep_scraper.models import Pepscrape, db_connect, create_table
 
 class PepScraperPipeline(object):
 
