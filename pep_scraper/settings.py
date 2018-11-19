@@ -23,7 +23,7 @@ DATABASE = {
     'database':'pepscrape'
 }
 
-ITEM_PIPELINES = ['pep_scraper.pipeliens.PepScraperPipeline']
+ITEM_PIPELINES = {'pep_scraper.pipelines.PepScraperPipeline':100}
 
 
 
