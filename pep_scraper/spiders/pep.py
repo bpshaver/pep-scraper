@@ -8,9 +8,6 @@ class PepSpider(scrapy.Spider):
     allowed_domains = ['python.org']
     start_urls = ['https://www.python.org/dev/peps/']
 
-    def __init__(self):
-        self.foobar = PepScraperItem()
-
     def parse(self, response):
         soup = BeautifulSoup(response.text, 'lxml')
         num_index = soup.find('div', attrs={'id':'numerical-index'}).find('tbody')
