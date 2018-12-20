@@ -9,6 +9,13 @@ class PepSpider(scrapy.Spider):
     start_urls = ['https://www.python.org/dev/peps/']
 
     def parse(self, response):
+        """ Parses the Python PEP main page for links to each PEP's individual
+        page, then yields a request for that page.
+
+        @url https://www.python.org/dev/peps/
+        @returns items 0 0
+        @returns requests 10
+        """
         soup = BeautifulSoup(response.text, 'lxml')
         num_index = soup.find('div', attrs={'id':'numerical-index'}).find('tbody')
 
@@ -28,6 +35,19 @@ class PepSpider(scrapy.Spider):
             yield request
 
     def page_parse(self, response):
+        """ Parses the page for an individual Python PEP. 
+
+        # @url https://www.python.org/dev/peps/pep-0484/
+        # @returns items 1 1
+        # @returns requests 0 0
+        # @scrapes PEP Title Author url
+
+        # This contract will fail since page_parse is run in isolation,
+        # and the Item passed through in the meta dict is missing. There
+        # is no easy way around this for now. 
+        # Takeaway: Contracts work only for the top-level parse function,
+        # unless callbacks can be run in isolation.
+        """
         item = response.meta['item']
 
         soup = BeautifulSoup(response.text, 'lxml')
@@ -39,9 +59,5 @@ class PepSpider(scrapy.Spider):
                 item[key] =  row.find('td').text
             except KeyError as e:
                 print(f"Unexpected key: {key}")
-
-        # print('-----')
-        # print(item)
-        # print('-----')
 
         yield item
