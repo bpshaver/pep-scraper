@@ -1,0 +1,8 @@
+beautifulsoup4==4.6.0
+Scrapy==1.5.1
+scrapy-splash==0.7.2
+scrapyd==1.2.0
+# SQLAlchemy
+# psycopg2
+SQLAlchemy==1.2.7
+psycopg2==2.7.5
