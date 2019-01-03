@@ -8,8 +8,8 @@ services:
   postgres:
     image: 'postgres'
     restart: 'no' # default behavior
-    ports:
-      - 5432:5432 # or 5432:5433 if you have postgres locally too
+    # ports:
+    #   - 5432:5432 # or 5432:5433 if you have postgres locally too
     environment:
       - POSTGRES_USER= "postgres"
       - POSTGRES_PASSWORD= "postgres"
