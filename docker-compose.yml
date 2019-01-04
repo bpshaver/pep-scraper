@@ -9,7 +9,7 @@ services:
 
   postgres:
     hostname: postgres
-    image: postgres
+    image: postgres:11
     restart: always
     environment:
       POSTGRES_USER: pep
@@ -17,9 +17,3 @@ services:
       POSTGRES_DB: pepscrape
     # volumes:
     #   - db_data:/var/lib/postgresql/data
-
-  # adminer:
-  #   image: adminer
-  #   restart: always
-  #   ports:
-  #     - 8080:8080

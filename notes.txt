@@ -1,0 +1,6 @@
+# Comment out the 'scraper' service in the docker-compose.yml
+# and just see if you can connect with username pep to database
+# pepscrape
+
+>>> docker exec -it pep-scraper_postgres_1 bash
+>>> psql -U pep pepscrape
