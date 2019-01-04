@@ -4,13 +4,22 @@ services:
   scraper:
     build: ./scraper
     tty: true
+    depends_on:
+      - postgres
 
   postgres:
-    image: 'postgres'
-    restart: 'no' # default behavior
-    # ports:
-    #   - 5432:5432 # or 5432:5433 if you have postgres locally too
+    hostname: postgres
+    image: postgres
+    restart: always
     environment:
-      - POSTGRES_USER= "postgres"
-      - POSTGRES_PASSWORD= "postgres"
-      - POSTGRES_DB= "pepscrape"
+      POSTGRES_USER: pep
+      POSTGRES_PASSWORD: pep
+      POSTGRES_DB: pepscrape
+    # volumes:
+    #   - db_data:/var/lib/postgresql/data
+
+  # adminer:
+  #   image: adminer
+  #   restart: always
+  #   ports:
+  #     - 8080:8080
