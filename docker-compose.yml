@@ -6,6 +6,7 @@ services:
     tty: true
     depends_on:
       - postgres
+    command: ./run.sh #--check
 
   postgres:
     hostname: postgres
@@ -15,5 +16,5 @@ services:
       POSTGRES_USER: pep
       POSTGRES_PASSWORD: pep
       POSTGRES_DB: pepscrape
-    # volumes:
-    #   - db_data:/var/lib/postgresql/data
+    volumes:
+      - ./db_data:/var/lib/postgresql/data
